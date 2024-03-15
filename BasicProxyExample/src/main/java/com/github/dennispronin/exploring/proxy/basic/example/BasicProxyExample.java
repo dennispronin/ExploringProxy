@@ -1,6 +1,6 @@
 package com.github.dennispronin.exploring.proxy.basic.example;
 
-public class BasicExample {
+public class BasicProxyExample {
 
     public static void main(String[] args) {
         Calculator calculator = createCalculator();
