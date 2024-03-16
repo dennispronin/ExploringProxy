@@ -2,16 +2,16 @@ package com.github.dennispronin.exploring.proxy.basic.example;
 
 public class CalculatorLoggingProxy implements Calculator {
 
-    private final Calculator calculator;
+    private final Calculator delegate;
 
     public CalculatorLoggingProxy() {
-        this.calculator = new CalculatorImpl();
+        this.delegate = new CalculatorImpl();
     }
 
     @Override
     public int multiply(int operand1, int operand2) {
         logOperands(operand1, operand2);
-        int result = calculator.multiply(operand1, operand2);
+        int result = delegate.multiply(operand1, operand2);
         logResult(result);
         return result;
     }

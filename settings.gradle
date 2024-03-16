@@ -1,2 +1,3 @@
 rootProject.name = 'ExploringProxy'
 include 'BasicProxyExample'
+include 'JDKProxyExample'
