@@ -1,4 +1,6 @@
-package com.github.dennispronin.exploring.proxy.jdk.example;
+package com.github.dennispronin.exploring.proxy.dynamic.example.jdk;
+
+import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

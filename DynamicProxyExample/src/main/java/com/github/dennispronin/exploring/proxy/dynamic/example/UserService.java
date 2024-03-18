@@ -1,4 +1,4 @@
-package com.github.dennispronin.exploring.proxy.jdk.example;
+package com.github.dennispronin.exploring.proxy.dynamic.example;
 
 public interface UserService {
 

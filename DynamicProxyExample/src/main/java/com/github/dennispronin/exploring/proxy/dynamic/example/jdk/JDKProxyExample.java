@@ -1,4 +1,8 @@
-package com.github.dennispronin.exploring.proxy.jdk.example;
+package com.github.dennispronin.exploring.proxy.dynamic.example.jdk;
+
+import com.github.dennispronin.exploring.proxy.dynamic.example.UserRepository;
+import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
+import com.github.dennispronin.exploring.proxy.dynamic.example.UserServiceImpl;
 
 import java.lang.reflect.Proxy;
 
