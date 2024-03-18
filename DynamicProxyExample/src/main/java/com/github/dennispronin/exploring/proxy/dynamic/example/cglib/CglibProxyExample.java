@@ -1,13 +1,12 @@
-package com.github.dennispronin.exploring.proxy.dynamic.example.jdk;
+package com.github.dennispronin.exploring.proxy.dynamic.example.cglib;
 
 import com.github.dennispronin.exploring.proxy.dynamic.example.TestUserServiceUtil;
 import com.github.dennispronin.exploring.proxy.dynamic.example.UserRepository;
 import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
 import com.github.dennispronin.exploring.proxy.dynamic.example.UserServiceImpl;
+import net.sf.cglib.proxy.Enhancer;
 
-import java.lang.reflect.Proxy;
-
-public class JDKProxyExample {
+public class CglibProxyExample {
 
     public static void main(String[] args) {
         UserService userService = createUserService();
@@ -15,10 +14,9 @@ public class JDKProxyExample {
     }
 
     public static UserService createUserService() {
-        UserService userService = new UserServiceImpl(new UserRepository());
-        UserServiceCachingInvocationHandler handler = new UserServiceCachingInvocationHandler(userService);
-        return (UserService) Proxy.newProxyInstance(UserService.class.getClassLoader(),
-                new Class[]{UserService.class},
-                handler);
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(UserServiceImpl.class);
+        enhancer.setCallback(new UserServiceCachingMethodInterceptor());
+        return (UserServiceImpl) enhancer.create(new Class[]{UserRepository.class}, new Object[]{new UserRepository()});
     }
 }
