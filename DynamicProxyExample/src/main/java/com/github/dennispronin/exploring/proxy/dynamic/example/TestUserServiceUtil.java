@@ -11,12 +11,14 @@ public class TestUserServiceUtil {
         System.out.println(realUserService.getClass());
         System.out.println(userService.getClass());
 
-        long timeStampBefore = System.currentTimeMillis();
-        userService.findUserById(1L);
-        System.out.println("\nExecution time before cache: " + (System.currentTimeMillis() - timeStampBefore));
+        long timeStampBeforeCache = System.currentTimeMillis();
+        String nameBeforeCache = userService.findUserById(1L);
+        System.out.println("\nExecution time before cache: " + (System.currentTimeMillis() - timeStampBeforeCache));
 
-        long secondTimeStampBefore = System.currentTimeMillis();
-        userService.findUserById(1L);
-        System.out.println("Execution time after cache: " + (System.currentTimeMillis() - secondTimeStampBefore));
+        long secondTimeStampBeforeCache = System.currentTimeMillis();
+        String nameAfterCache = userService.findUserById(1L);
+        System.out.println("Execution time after cache: " + (System.currentTimeMillis() - secondTimeStampBeforeCache));
+
+        assert nameBeforeCache.equals(nameAfterCache);
     }
 }
