@@ -13,7 +13,7 @@ public class CglibProxyExample {
         TestUserServiceUtil.test(userService);
     }
 
-    public static UserService createUserService() {
+    private static UserService createUserService() {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(UserServiceImpl.class);
         enhancer.setCallback(new UserServiceCachingMethodInterceptor());

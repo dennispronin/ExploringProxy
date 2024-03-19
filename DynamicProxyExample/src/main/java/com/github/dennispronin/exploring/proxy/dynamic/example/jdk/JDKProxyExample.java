@@ -14,7 +14,7 @@ public class JDKProxyExample {
         TestUserServiceUtil.test(userService);
     }
 
-    public static UserService createUserService() {
+    private static UserService createUserService() {
         UserService userService = new UserServiceImpl(new UserRepository());
         UserServiceCachingInvocationHandler handler = new UserServiceCachingInvocationHandler(userService);
         return (UserService) Proxy.newProxyInstance(UserService.class.getClassLoader(),

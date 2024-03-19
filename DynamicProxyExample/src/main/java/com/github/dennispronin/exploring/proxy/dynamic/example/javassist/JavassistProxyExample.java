@@ -1,17 +1,15 @@
-package com.github.dennispronin.exploring.proxy.dynamic.example.bytebuddy;
+package com.github.dennispronin.exploring.proxy.dynamic.example.javassist;
 
 import com.github.dennispronin.exploring.proxy.dynamic.example.TestUserServiceUtil;
 import com.github.dennispronin.exploring.proxy.dynamic.example.UserRepository;
 import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
 import com.github.dennispronin.exploring.proxy.dynamic.example.UserServiceImpl;
-import net.bytebuddy.ByteBuddy;
-import net.bytebuddy.implementation.MethodDelegation;
+import javassist.util.proxy.Proxy;
+import javassist.util.proxy.ProxyFactory;
 
 import java.lang.reflect.InvocationTargetException;
 
-import static net.bytebuddy.matcher.ElementMatchers.named;
-
-public class ByteBuddyProxyExample {
+public class JavassistProxyExample {
 
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
         UserService userService = createUserService();
@@ -19,13 +17,11 @@ public class ByteBuddyProxyExample {
     }
 
     private static UserService createUserService() throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        return new ByteBuddy()
-                .subclass(UserServiceImpl.class)
-                .method(named("findUserById")).intercept(MethodDelegation.to(new UserServiceCachingInterceptor()))
-                .make()
-                .load(UserServiceImpl.class.getClassLoader())
-                .getLoaded()
-                .getDeclaredConstructor(UserRepository.class)
-                .newInstance(new UserRepository());
+        ProxyFactory factory = new ProxyFactory();
+        factory.setSuperclass(UserServiceImpl.class);
+        Class<?> clazz = factory.createClass();
+        Object instance = clazz.getDeclaredConstructor(UserRepository.class).newInstance(new UserRepository());
+        ((Proxy) instance).setHandler(new UserServiceCachingMethodHandler());
+        return (UserService) instance;
     }
 }
