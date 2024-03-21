@@ -1,3 +1,4 @@
 rootProject.name = 'ExploringProxy'
 include 'BasicProxyExample'
 include 'DynamicProxyExample'
+include 'SpringProxyExample'
