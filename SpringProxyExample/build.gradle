@@ -7,15 +7,15 @@ plugins {
 group = 'com.github.dennispronin'
 version = '1.0'
 
-java {
-    sourceCompatibility = '11'
-}
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation project(':Common')
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

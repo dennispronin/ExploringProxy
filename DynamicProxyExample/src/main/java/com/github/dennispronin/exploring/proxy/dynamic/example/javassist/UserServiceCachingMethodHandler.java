@@ -1,6 +1,6 @@
 package com.github.dennispronin.exploring.proxy.dynamic.example.javassist;
 
-import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
+import com.github.dennispronin.exploring.proxy.common.UserService;
 import javassist.util.proxy.MethodHandler;
 
 import java.lang.reflect.InvocationTargetException;

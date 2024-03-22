@@ -1,6 +1,6 @@
 package com.github.dennispronin.exploring.proxy.dynamic.example.cglib;
 
-import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
+import com.github.dennispronin.exploring.proxy.common.UserService;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 

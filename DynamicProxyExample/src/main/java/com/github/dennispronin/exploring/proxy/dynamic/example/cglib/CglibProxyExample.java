@@ -1,9 +1,9 @@
 package com.github.dennispronin.exploring.proxy.dynamic.example.cglib;
 
-import com.github.dennispronin.exploring.proxy.dynamic.example.TestUserServiceUtil;
-import com.github.dennispronin.exploring.proxy.dynamic.example.UserRepository;
-import com.github.dennispronin.exploring.proxy.dynamic.example.UserService;
-import com.github.dennispronin.exploring.proxy.dynamic.example.UserServiceImpl;
+import com.github.dennispronin.exploring.proxy.common.TestUserServiceUtil;
+import com.github.dennispronin.exploring.proxy.common.UserRepository;
+import com.github.dennispronin.exploring.proxy.common.UserService;
+import com.github.dennispronin.exploring.proxy.common.UserServiceImpl;
 import net.sf.cglib.proxy.Enhancer;
 
 public class CglibProxyExample {

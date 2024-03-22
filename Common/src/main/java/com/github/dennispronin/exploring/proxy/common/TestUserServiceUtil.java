@@ -1,4 +1,4 @@
-package com.github.dennispronin.exploring.proxy.dynamic.example;
+package com.github.dennispronin.exploring.proxy.common;
 
 public class TestUserServiceUtil {
 

@@ -1,4 +1,4 @@
-package com.github.dennispronin.exploring.proxy.spring.example;
+package com.github.dennispronin.exploring.proxy.common;
 
 public interface UserService {
 
